@@ -31,7 +31,7 @@ module.exports = serveStatic
  * @public
  */
 
-function serveStatic (root, urlRoot, opts) {
+function serveStatic (root, opts) {
   if (!root) {
     throw new TypeError('root path required')
   }
@@ -85,7 +85,7 @@ function serveStatic (root, urlRoot, opts) {
         return
       }
 
-      var urlPath = urlRoot + "/" + path
+      var urlPath = opts.root + "/" + path
       res.sendFile(urlPath);
     })
   }
